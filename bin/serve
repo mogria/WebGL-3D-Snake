@@ -1,0 +1,9 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p python -p xdg_utils -p python36Packages.livereload
+
+xdg-open http://localhost:8000/
+killall .livereload-wrapped
+livereload &
+python -m SimpleHTTPServer 8000
+
+
