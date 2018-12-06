@@ -53,13 +53,8 @@ var scene = {
     angularSpeed: 0.1 * 2 * Math.PI / 360.0
 };
 
-// defined object
-var drawingObjects = {
-    wiredCube: null,
-    solidCube: null,
-    solidSphere: null
-};
 
+var maze;
 /**
  * Startup function to be called when the body is loaded
  */
@@ -83,7 +78,7 @@ function initGL() {
     "use strict";
     ctx.shaderProgram = loadAndCompileShaders(gl, 'VertexShader.glsl', 'FragmentShaderLighting.glsl');
     setUpAttributesAndUniforms();
-    defineObjects();
+    maze = new Maze(gl);
 
     gl.enable(gl.DEPTH_TEST);
     gl.clearColor(0.8, 0.8, 0.8, 1);
@@ -122,16 +117,6 @@ function loadTexture() {
     };
     // setting the src will trigger onload
     image.src = "lena512.png";
-}
-
-function defineObjects() {
-    drawingObjects.solidCube = new SolidCube(gl,
-        [1.0, 0.0, 0.0],
-        [0.0, 1.0, 0.0],
-        [0.0, 0.0, 1.0],
-        [1.0, 1.0, 0.0],
-        [0.0, 1.0, 1.0],
-        [1.0, 0.0, 1.0]);
 }
 
 /**
@@ -230,6 +215,8 @@ function draw() {
 
 var first = true;
 var lastTimeStamp = 0;
+var timeSinceLastTick = 0;
+var tickLength = 0.1;
 function drawAnimated ( timeStamp ) {
     var timeElapsed = 0;
     if (first) {
@@ -239,12 +226,13 @@ function drawAnimated ( timeStamp ) {
         timeElapsed = timeStamp - lastTimeStamp;
         lastTimeStamp = timeStamp;
     }
-    // calculate time since last call
-    // move or change objects
-    scene.angle += timeElapsed * scene.angularSpeed;
-    if (scene.angle > 2.0*Math.PI) {
-        scene.angle -= 2.0*Math.PI;
-    }
+    timeSinceLastTick += timeElapsed;
+
+    while(timeSinceLastTick > tickLength) { // handle multiple ticks
+        // maze.tick(); // TODO: call this properly, fix this
+        timeSinceLastTick -= tickLength;
+    };
+
     draw ();
     // request the next frame
     window.requestAnimationFrame (drawAnimated);
