@@ -185,7 +185,7 @@ function draw() {
     // same projection matrix for all drawings, so it can be specified here
     gl.uniformMatrix4fv(ctx.uProjectionMatrixId, false, projectionMatrix);
 
-    maze.draw()
+    maze.draw(ctx);
     // translate and rotate objects
     // mat4.translate(modelViewMatrix, viewMatrix, [1.0, 0, 0]);
     // mat4.rotate(modelViewMatrix, modelViewMatrix, scene.angle, [0, 1, 0]);
