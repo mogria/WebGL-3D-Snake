@@ -7,14 +7,17 @@ function Snake(gl, start_pos) {
     this.setDirection = function(direction) {
     };
 
-    var drawingObjects = [
-        solidCube: new SolidCube(gl, [1.0, 0.0, 0.0],
-                                     [0.0, 1.0, 0.0],
-                                     [0.0, 0.0, 1.0],
-                                     [1.0, 1.0, 0.0],
-                                     [0.0, 1.0, 1.0],
-                                     [1.0, 0.0, 1.0]);
-    ];
+    cubeColors = [[1.0, 0.0, 0.0],
+                  [0.0, 1.0, 0.0],
+                  [0.0, 0.0, 1.0],
+                  [1.0, 1.0, 0.0],
+                  [0.0, 1.0, 1.0],
+                  [1.0, 0.0, 1.0]];
+
+
+    var drawingObjects = {
+        solidCube: new SolidCube(gl, ...cubeColors),
+    };
 
     this.tick = function() {
         var direction = this.direction;
@@ -25,6 +28,7 @@ function Snake(gl, start_pos) {
     };
 
     this.draw = function(ctx) {
-        
+        for(var i = 0; i < parts.length; i++) {
+        }
     };
 }
