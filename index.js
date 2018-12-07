@@ -185,6 +185,7 @@ function draw() {
     // same projection matrix for all drawings, so it can be specified here
     gl.uniformMatrix4fv(ctx.uProjectionMatrixId, false, projectionMatrix);
 
+    maze.draw()
     // translate and rotate objects
     // mat4.translate(modelViewMatrix, viewMatrix, [1.0, 0, 0]);
     // mat4.rotate(modelViewMatrix, modelViewMatrix, scene.angle, [0, 1, 0]);
@@ -229,7 +230,7 @@ function drawAnimated ( timeStamp ) {
     timeSinceLastTick += timeElapsed;
 
     while(timeSinceLastTick > tickLength) { // handle multiple ticks
-        // maze.tick(); // TODO: call this properly, fix this
+        maze.tick();
         timeSinceLastTick -= tickLength;
     };
 

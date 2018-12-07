@@ -31,6 +31,7 @@ function isDown (keyCode) {
 function onKeydown(event) {
     pressed[event.keyCode] = true;
 
+    // TODO: check if this actually works
     if(typeof keyDirection[event.keyCode] !== 'undefined') {
         pressedDirection = keyDirection[event.keyCode];
     }

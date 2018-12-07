@@ -7,11 +7,19 @@ function Maze(gl) {
         wireFrameCube: new WireFrameCube(gl, [1.0, 1.0, 0.0]),
     };
 
+    // TODO: implement fruits here?
+
     this.tick = function() {
-        snake.tick();
+        this.snake.tick();
+
+        //TODO: check collisions here maybe instead of in snake.js, maybe split it into methods?
+
+        //TODO: spawn fruits if required?
     };
 
     this.draw = function() {
         this.snake.draw();
+        //TODO: draw wireframe of the maze?
+        //TODO: draw fruits
     };
 }
