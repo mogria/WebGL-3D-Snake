@@ -186,31 +186,31 @@ function draw() {
     gl.uniformMatrix4fv(ctx.uProjectionMatrixId, false, projectionMatrix);
 
     // translate and rotate objects
-    mat4.translate(modelViewMatrix, viewMatrix, [1.0, 0, 0]);
-    mat4.rotate(modelViewMatrix, modelViewMatrix, scene.angle, [0, 1, 0]);
-    gl.uniformMatrix4fv(ctx.uModelViewMatrixId, false, modelViewMatrix);
-    mat3.normalFromMat4(normalMatrix, modelViewMatrix);
-    gl.uniformMatrix3fv(ctx.uNormalMatrixId, false, normalMatrix);
+    // mat4.translate(modelViewMatrix, viewMatrix, [1.0, 0, 0]);
+    // mat4.rotate(modelViewMatrix, modelViewMatrix, scene.angle, [0, 1, 0]);
+    // gl.uniformMatrix4fv(ctx.uModelViewMatrixId, false, modelViewMatrix);
+    // mat3.normalFromMat4(normalMatrix, modelViewMatrix);
+    // gl.uniformMatrix3fv(ctx.uNormalMatrixId, false, normalMatrix);
     //drawingObjects.wiredCube.draw(gl, ctx.aVertexPositionId, ctx.aVertexColorId);
-    drawingObjects.solidCube.draw(gl, ctx.aVertexPositionId, ctx.aVertexColorId, ctx.aVertexNormalId);
+    // drawingObjects.solidCube.draw(gl, ctx.aVertexPositionId, ctx.aVertexColorId, ctx.aVertexNormalId);
 
 
     // translate and rotate objects
-    mat4.translate(modelViewMatrix, viewMatrix, [-1.0, 0, 0]);
-    mat4.rotate(modelViewMatrix, modelViewMatrix, scene.angle, [0, 1, 0]);
-    gl.uniformMatrix4fv(ctx.uModelViewMatrixId, false, modelViewMatrix);
-    mat3.normalFromMat4(normalMatrix, modelViewMatrix);
-    gl.uniformMatrix3fv(ctx.uNormalMatrixId, false, normalMatrix);
-    drawingObjects.solidCube.draw(gl, ctx.aVertexPositionId, ctx.aVertexColorId, ctx.aVertexNormalId);
+    // mat4.translate(modelViewMatrix, viewMatrix, [-1.0, 0, 0]);
+    // mat4.rotate(modelViewMatrix, modelViewMatrix, scene.angle, [0, 1, 0]);
+    // gl.uniformMatrix4fv(ctx.uModelViewMatrixId, false, modelViewMatrix);
+    // mat3.normalFromMat4(normalMatrix, modelViewMatrix);
+    // gl.uniformMatrix3fv(ctx.uNormalMatrixId, false, normalMatrix);
+    // drawingObjects.solidCube.draw(gl, ctx.aVertexPositionId, ctx.aVertexColorId, ctx.aVertexNormalId);
 
     // draw sphere
-    mat4.translate(modelViewMatrix, viewMatrix, [0.0, 0.0, -1.0]);
-    mat4.rotate(modelViewMatrix, modelViewMatrix, scene.angle, [0, 1, 0]);
-    mat4.scale(modelViewMatrix, modelViewMatrix, [0.5, 0.5, 0.5]);
-    gl.uniformMatrix4fv(ctx.uModelViewMatrixId, false, modelViewMatrix);
-    mat3.normalFromMat4(normalMatrix, modelViewMatrix);
-    gl.uniformMatrix3fv(ctx.uNormalMatrixId, false, normalMatrix);
-    drawingObjects.solidSphere.drawWithColor(gl, ctx.aVertexPositionId, ctx.aVertexColorId, ctx.aVertexNormalId, [1, 0, 0]);
+    // mat4.translate(modelViewMatrix, viewMatrix, [0.0, 0.0, -1.0]);
+    // mat4.rotate(modelViewMatrix, modelViewMatrix, scene.angle, [0, 1, 0]);
+    // mat4.scale(modelViewMatrix, modelViewMatrix, [0.5, 0.5, 0.5]);
+    // gl.uniformMatrix4fv(ctx.uModelViewMatrixId, false, modelViewMatrix);
+    // mat3.normalFromMat4(normalMatrix, modelViewMatrix);
+    // gl.uniformMatrix3fv(ctx.uNormalMatrixId, false, normalMatrix);
+    // drawingObjects.solidSphere.drawWithColor(gl, ctx.aVertexPositionId, ctx.aVertexColorId, ctx.aVertexNormalId, [1, 0, 0]);
 }
 
 var first = true;
