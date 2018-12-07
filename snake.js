@@ -1,8 +1,8 @@
 function Snake(gl, start_pos) {
     this.gl = gl;
-    var parts = [start_pos];
-    var direction = vec3.fromValues(0, 1, 0);
-    var grow = 0;
+    this.parts = [start_pos];
+    this.direction = vec3.fromValues(0, 1, 0);
+    this.grow = 0;
 
 
     this.setDirection = function(direction) {
@@ -30,16 +30,16 @@ function Snake(gl, start_pos) {
         // TODO: move last part to the second part where the head of
         //       the snake was before to simulate movment
 
-        if(grow == 0){
+        if(this.grow == 0){
             this.parts.pop()
         } else {
             // if we don't remove the last part of the snake it grows!
-            grow--;
+            this.grow--;
         }
     };
 
     this.draw = function(ctx) {
-        for(var i = 0; i < parts.length; i++) {
+        for(var i = 0; i < this.parts.length; i++) {
         }
     };
 }
